@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.appBackground{
+  /* background: linear-gradient(0deg, #0C081C 0%, #0e198b 112.5%); */
+  background-color: #09104D;
+  z-index: -50;
+  display: block;
+  margin: 0;
+  /* align-items: center;
+  justify-items: center;
+  position: relative; */
+  height: 100%;
+}
+.appBackground2{
+  background-image: url('./assets/Trv_bg/trove bg.png');
+  /* background-image: url('./assets/Trv_bg/Trv_bgWave_1.svg'); */
+  /* background-size: cover; */
+  width: 100%;
+  background-size: 200% 200%;
+  /* height: 100%; */
+  /* background-position: center; */
+  /* position: absolute; */
+  /* left: 0;
+  top: 0; */
+  z-index: -49;
+  /* background-blend-mode: multiply; */
+  background-repeat: no-repeat;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.zintex-6{
+  z-index: 6;
+}
+.zindex-12{
+  z-index: 13;
+  position: relative;
+}
+.fullscreen-btn-test{
+  z-index: 70;
+  position: fixed;
+  bottom: 0;
+  background-color: cadetblue;
+  text-transform:uppercase;
+  padding: 3px;
+  margin: 1px;
+  font-size: xx-small;
+  color: wheat;
+  border-radius: 5px;
+  opacity: 0.5;
+
+}
+@media screen and (min-width:800px) {
+  .test123456{
+    background-color: crimson;
+    margin-left: 15%;
+  }
+}

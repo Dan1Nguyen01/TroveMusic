@@ -1,0 +1,118 @@
+.DG-card-home{
+    text-decoration: none;
+}
+
+.pad-t-5{
+    padding-top: 5px;
+}
+.pad-t-10{
+    padding-top: 10px;
+}
+@media screen and (max-width:380px){
+    .mar-t{
+        margin-top: 20px;
+    }
+}
+@media screen and (min-width:380px){
+    .mar-t{
+        margin-top: 50px;
+    }
+}
+@media screen and (min-width:800px) {
+    h4{
+        /* background-color: beige; */
+        width: 100%;
+    }
+    .homeHeaderText{
+        font-size: 1.5vw;
+        padding-top:1.5vw;
+    }
+    .test123456{
+      /* background-color: crimson; */
+      padding-left: 5px;
+      margin-left: 12%;
+      margin: auto;
+      width: 90%;
+    }
+    .art-card-cont{
+        /* background-color: burlywood; */
+        height: 200px;
+    }
+  }
+  .text-invisible{
+    color: transparent;
+    cursor: default;
+  }
+.homeShowcase{
+    /* background-color: chartreuse; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-flow: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.carousel-dots{
+    background-color: rgba(255, 255, 255, 0.109);
+    order: 2;
+    position: absolute;
+    bottom: 0;
+    /* display: inline-flex !important;
+    flex-flow: column; */
+    margin: auto;
+    height: 20px;
+    padding-right: 60px;
+    padding-left: 60px;
+    gap: 5px;
+    font-size: large;
+    transform: translateY(24.5px);
+    color: transparent;
+    border-radius: 5px;
+    z-index: -1;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2.5px);
+        -webkit-backdrop-filter: blur(2.5px);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+}
+.mar-l-5{
+
+    margin-left: 5px;
+}
+.mar-l-5{
+    margin-top: 5px;
+}
+.mar-t-10{
+    margin-top:10px;
+}
+.mar-y-5{
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.test123456{
+    background-color: rgba(220, 20, 60, 0);
+    margin-top: 15px;
+  }
+
+.txt-white{
+    color: white;
+}
+.hide-scroll{
+    -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+.art-card-cont{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    gap: 2px;
+    margin-bottom: 5px;
+    
+}

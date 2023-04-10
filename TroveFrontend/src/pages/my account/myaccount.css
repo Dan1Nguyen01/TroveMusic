@@ -1,0 +1,377 @@
+.hideOverflow{
+  overflow: hidden;
+}
+.account-header, .privacy-header, .support-header{
+  padding: 1vw 2vw 0vw 2vw;
+  display: flex;
+ align-items: center;
+ text-align: center;
+
+}
+@media screen and (max-width: 350px) {
+.user-avatar {
+  width: 50px !important;
+  height: 50px !important;
+  display: flex;
+  object-fit:fill;
+  border-radius: 50%;    
+}
+.userImg-border{
+  background: linear-gradient(to top, #8650F4, #0034C4);
+  border-radius: 50% !important;
+  margin: 5px;
+  padding: 1vw;
+  box-sizing: border-box;
+  display: flex;
+  filter: none;
+  height: 60px !important;
+  width: 60px !important;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+
+.userimg_displayName{
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+  /* height: 30vw; */
+  max-height: 150px !important;
+}
+}
+.user-avatar {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  object-fit:fill;
+  border-radius: 50%;    
+  /* margin-left: 35%; */
+
+  
+
+}
+.userImg-border{
+  /* background: linear-gradient(to top, #8650F4, #0034C4); */
+  border-radius: 50% !important;
+  margin: 5px;
+  padding: 1vw;
+  box-sizing: border-box;
+  display: flex;
+  filter: none;
+  height: 100px ;
+  width: 100px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+}
+.userimg_displayName{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 10px;
+  height: 30vw;
+}
+.newPasswordCont{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 6px;
+}
+
+.eyeIcon{
+  transform: translateX(-30px);
+}
+
+@media screen and (min-width: 801px) {
+  .my-account {
+    border: solid 2px rgba(255, 255, 255, 0.182);
+    display: grid;
+    grid-template-columns: max(15%) max(85%);
+    color: rgb(255, 255, 255);
+    min-height: 100%;
+  }
+  .bg-fglass-1{
+    background-color: #2d34360b;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .bg-fglass-2{
+    background-color: #2d34362c;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+  }
+  .my-account-header {
+    color: white;
+  }
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+  }
+  .userImg-border{
+    /* background: linear-gradient(to top, #8650F4, #0034C4); */
+    border-radius: 500px !important;
+    margin: 5px;
+    padding: 1px;
+    box-sizing: border-box;
+    display: flex;
+    filter: none;
+    height:110px !important;
+    width: 110px !important;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .userImg-border input[type="file"] {
+    display: none;
+  }
+
+  .userImg-border{
+    padding-bottom: 2vmin;
+  }
+  
+  .userImg-border:hover  {
+    opacity: 0.6;
+  }
+  
+  .userImg-border > h4 {
+    font-size: 1.8vmin;
+    position: absolute;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+  }
+  
+  .userImg-border:hover > h4 {
+    display: block;
+  
+  }
+  .userimg_displayName{
+    display: flex;
+    align-items: center;
+    max-height: 150px !important;
+  }
+  .dispNameInp{
+    margin-left: 15px;
+  }
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-right: 2px solid rgba(255, 255, 255, 0.182);
+    min-height: 500px;
+    padding: 10px;
+    /* background-color: aquamarine; */
+    border-radius: 12px 0 0 13px;
+    
+  }
+
+  .tab {
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(250, 20, 20, 0);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px #8750f41b;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .active-tab:hover {
+    background-color: transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  .tab:hover {
+    background-color: transparent;
+    opacity: 0.6;
+  }
+
+  .active-tab {
+    border-bottom: solid 1px #8750f4e6;
+    cursor: poiter;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+  }
+  .personalInfoCont{
+    display: flex;
+    max-width: 500px;
+    align-items: center;
+    flex-direction: column;
+    /* margin: auto; */
+    
+  }
+  
+  .inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .emailImpCont > .form-control{
+    background-color: transparent;
+    color: rgb(198, 198, 198);
+  }
+  .contents {
+    
+  }
+
+  .form-control {
+    max-width: 500px;
+  }
+  .content {
+    display: none;
+    position: relative;
+  }
+
+  .active-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 50px;
+  }
+  .updateMailPassCont{
+    display: flex;
+    /* background-color: rgba(255, 255, 0, 0.242); */
+    flex-direction: row;
+    gap: 5vw;
+  }
+  .updateMailPassinput{
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .my-account-header {
+    color: rgb(255, 255, 255);
+  }
+  .my-account {
+    border: solid 2px;
+  }
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  .tab {
+    position: relative;
+    cursor: poiter;
+    border-bottom: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.511);
+  }
+
+  .active-tab {
+    background-color: rgba(159, 176, 190, 0);
+    /* border: 1px solid; */
+    color: white;
+    border-bottom: 1px solid;
+  }
+
+  .contents {
+    position: relative;
+  }
+
+  .content {
+    display: none;
+    position: relative;
+    border: solid 2px;
+  }
+
+  .active-content {
+    position: relative;
+    padding: 50px;
+  }
+  .bg-fglass-1{
+    background: rgba(255, 255, 255, 0.13);
+    border-bottom: 1px solid;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); */
+  }
+
+  .bg-fglass-2{
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); 
+  }
+  .user-avatar {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    object-fit:fill;
+    border-radius: 50%;    
+  }
+  .userImg-border{
+    /* background: linear-gradient(to top, #8650F4, #0034C4); */
+    border-radius: 50% !important;
+    margin: 5px;
+    padding: 1vw;
+    box-sizing: border-box;
+    display: flex;
+    filter: none;
+    height: 100px ;
+    width: 100px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .userimg_displayName{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 10px;
+    height: 30vw;
+  }
+  .inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .emailImpCont > .form-control{
+    background-color: transparent;
+    color: rgb(198, 198, 198);
+  }
+  .updateMailPassCont{
+    display: flex;
+    background-color: rgba(255, 255, 0, 0.242);
+    flex-direction: column;
+    gap: 5vw;
+
+  }
+  .updateMailPassinput{
+    width: 70vw;
+    text-shadow:3px 3px #c46500;
+  }
+
+  .updateMailPassinput > form > h5 {
+    text-shadow:3px 3px #c46500;
+  }
+
+  .updateMailPassinput input {
+    color: white;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "short_name": "Trove",
+  "name": "TroveMusic",
+  "icons": [
+
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
