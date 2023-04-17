@@ -55,20 +55,41 @@ const Home = () => {
           })
       }, 500)
     }
-  })
-  const fetchCurated = async () => {
-    setDone(false)
-    setTimeout(() => {
-      fetch(`api/curated/`)
-      .then(response => response.json())
-        .then(json => {
-          console.log("curated")
-          console.log(json)
-          updateCurated(json)
-          setDone(true)
+  }, [])
+  
+
+  useEffect (()=> {
+    const fetchCurated = async () => {
+      const response = await fetch(`/api/curated/`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({id}),
+      })
+const json = await response.json();
+    }
+    fetchCurated();
+  },[])
+
+
+  useEffect(()=> {
+    const fetchCurated = async () => {
+      setDone(false)
+      setTimeout(() => {
+        fetch(`/api/curated/`, {
+          method: 'GET',
+          headers: { 'Content-Type':"application/json"}
         })
-    }, 500)
-  }
+        .then(response => response.json())
+          .then(json => {
+            console.log("curated")
+            console.log(json)
+            updateCurated(json)
+            setDone(true)
+          })
+      }, 500)
+    }
+    fetchCurated();
+  },[])
   const settings = {
     speed: 800,
     slidesToShow: 1,
