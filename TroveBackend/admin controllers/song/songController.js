@@ -9,7 +9,7 @@ const { json } = require("express");
 //get all songs
 const getAllSongs = async (req, res) => {
   try {
-    const songs = await Song.find()
+    const songs = await Song.find({isVerified: true})
       .populate({
         path: "artist",
         select: "-password -email -dob; -gender", // Exclude password and email fields
@@ -49,7 +49,7 @@ const getSong = async (request, response) => {
     })
     .populate("album");
 
-  if (!song) {
+  if (!song || song.isVerified=== false) {
     return response.status(404).json({ error: "Song not found" });
   } else {
     console.log(song);
@@ -96,27 +96,25 @@ const getArtistSong = async (req, res) => {
 
 const likedSong = async (req, res) => {
   const { id } = req.params;
-
+  const { userID } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "song not available" });
   }
 
   try {
-    const song = await Song.findOne({ _id: id });
+    const song = await Song.findById(id);
 
     if (!song) {
       console.log("song not found");
-
-      throw new Error("song not found");
+      res.status(404).json({ error: "song not found" });
     }
-    const { userID } = req.body;
+
     console.log(userID);
-    const user = await User.findOne({ _id: userID });
+    const user = await User.findById(userID);
 
     if (!user) {
       console.log("user not found");
-
-      throw new Error("user not found");
+      res.status(404).json({ error: "user not found" });
     }
 
     if (song.isLoved.includes(user._id)) {
@@ -140,28 +138,26 @@ const likedSong = async (req, res) => {
 
 const dislikeSong = async (req, res) => {
   const { id } = req.params;
-
+  const { userID } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "song not available" });
   }
 
   try {
-    const song = await Song.findOne({ _id: id });
+    const song = await Song.findById(id);
 
     if (!song) {
       console.log("song not found");
 
-      throw new Error("song not found");
+      res.status(404).json({ error: "song not found" });
     }
-    const { userID } = req.body;
-    console.log(userID);
 
-    const user = await User.findOne({ _id: userID });
+    const user = await User.findById({ _id: userID });
 
     if (!user) {
       console.log("user not found");
 
-      throw new Error("user not found");
+      res.status(404).json({ error: "user not found" });
     }
 
     if (song.isLoved.includes(user._id)) {
@@ -169,10 +165,12 @@ const dislikeSong = async (req, res) => {
       user.likedSongs.pop(song._id);
     }
 
+    console.log(song.isLoved);
     await song.save();
 
     await user.save();
 
+    console.log("2", song.isLoved);
     res.status(200).json({ message: "removed like successfully" });
   } catch (err) {
     console.log(err);

@@ -5,32 +5,19 @@ export const useCreatePlaylist = () => {
   const [error, setError] = useState(null);
   const storage = firebase.storage();
   const [uploadProgress, setUploadProgress] = useState(0);
-  let playlistCoverUrl ="nonee";
+  let playlistCoverUrl = "nonee";
 
-  const uploadPlaylist = async (
-    playlistName,
-    id, 
-    imageFile, 
-    songList
-  ) => {
-
+  const uploadPlaylist = async (playlistName, id, imageFile, songList) => {
     const storageRef = storage.ref();
 
     const uploadImageToFirebase = async () => {
 
-      let imageCounter = 0;
-
-      while (await checkImageExists(imageCounter)) {
-        imageCounter++;
-      }
-
-      const imageRef = storageRef.child(`images/${imageCounter}`);
+      let fileRefName = imageFile?.name;
+      const imageRef = storageRef.child(`images/${fileRefName}`);
 
       const imageUploadTask = imageRef.put(imageFile);
 
       console.log("imageFile: " + imageFile);
-
-      console.log("imageFile[0]: " + imageFile[0]);
 
       console.log("imageRef: " + imageRef);
 
@@ -64,25 +51,15 @@ export const useCreatePlaylist = () => {
       });
     };
 
-    const checkImageExists = async (imageCounter) => {
 
-      const imageRef = storageRef.child(`images/${imageCounter}`);
 
-      const metadata = await imageRef.getMetadata()
-      .catch(err => {
 
-        if (err.code === "storage/object-not-found") {
-          return false;
-        }
-        else {
-          console.log(err);
-          return true;
-        }
-      });
-      return metadata !== false
-    }
-
-    const createPlaylistObject = async (playlistCoverUrl) => {
+    const createPlaylistObject = async (
+      playlistCoverUrl,
+      playlistName,
+      id,
+      songList
+    ) => {
       const res = await fetch("/api/playlists/", {
         method: "POST",
         headers: {
@@ -92,9 +69,9 @@ export const useCreatePlaylist = () => {
         },
         body: JSON.stringify({
           playlistName,
-          id, 
+          id,
           playlistCoverUrl: playlistCoverUrl,
-          songList
+          songList,
         }),
       });
 
@@ -110,7 +87,7 @@ export const useCreatePlaylist = () => {
     };
 
     playlistCoverUrl = await uploadImageToFirebase();
-    await createPlaylistObject(playlistCoverUrl);
+    await createPlaylistObject(playlistCoverUrl, playlistName, id, songList);
   };
 
   return { uploadPlaylist, error };

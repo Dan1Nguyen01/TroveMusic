@@ -98,23 +98,23 @@ const Search = () => {
                     </div>
                     <h3 className="artSearchSongHeader">Songs</h3>
                     {searchResult.songs
-                      .filter((song) => song.artist._id === artist._id)
-                      .map((song, index) => {
-                        if (index > 2) {
-                          return;
-                        } else {
-                          return (
-                            <SearchSongCard2
-                              key={song._id}
-                              song={song}
-                              setSongData={setSongData}
-                            />
-                          )
-                        }
-                      }
-                      )}
-                  </div>
-                ))}
+  .filter((song) => song.artist._id === artist._id)
+  .map((song, index) => {
+    if (index > 2) {
+      return null;
+    } else {
+      return (
+        <SearchSongCard2
+          key={song._id}
+          song={song}
+          setSongData={setSongData}
+        />
+      );
+    }
+  })}
+
+      </div>
+    ))}
               </div>
             )}
 
@@ -147,7 +147,7 @@ const Search = () => {
               <div>
                 <h2>Songs</h2>
                 {searchResult.songs.map((song) => (
-                  <SearchSongCard2 key={song._id} song={song} setSongData={setSongData} />
+                song.isVerified && <SearchSongCard2 key={song._id} song={song} setSongData={setSongData} />
                 ))}
 
                 {/* <div>

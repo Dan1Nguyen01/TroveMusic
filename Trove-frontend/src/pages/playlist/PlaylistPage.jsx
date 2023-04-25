@@ -36,29 +36,12 @@ export default function PlaylistPage (props) {
   } = React.useContext(MusicContext)
 
   const [playlist, setPlaylist] = React.useState(null)
+  const [playlistCreator, setPlaylistCreator] = React.useState(null)
   
-  React.useEffect(() => {
-    const findPlaylistCreator = async () => {
-      // setDone(false);
-      fetch(`/api/users/${playlist.playlistCreator}`)
-        .then(response => response.json())
-        .then(json => {
-          setPlaylistCreator(json)
-        })
-    }
-    findPlaylistCreator()
-    
-    if(playlist === undefined && clicks !== 1){
-      console.log(play_list);
-      setClicks(clicks+1);
-    }
-    if(playlist?.songList === play_list){
-      console.log("we have a match");
-    }
-  }, [])
   const togglePlayPause = () => {
     toggleIsPlay_G();
   }
+
   React.useEffect(() => {
     const fetchPlaylist = async () => {
       // const playlistResponse = await fetch(`/api/playlists/${id}`, {
@@ -76,15 +59,36 @@ export default function PlaylistPage (props) {
             // setPlaylistCreator(json)
             setDone(true)
             setPlaylist(json)
+            setPlaylistCreator(json._id)
           })
       }, 500)
     }
     fetchPlaylist()
   }, [id])
 
-  const [playlistCreator, setPlaylistCreator] = React.useState(null)
+
   const [done, setDone] = React.useState(false)
   const [clicks, setClicks] = React.useState(0);
+
+  // // React.useEffect(() => {
+  // //   const findPlaylistCreator = async () => {
+  // //     // setDone(false);
+  // //     fetch(`/api/users/${playlist.playlistCreator}`)
+  // //       .then(response => response.json())
+  // //       .then(json => {
+  // //         setPlaylistCreator(json)
+  // //       })
+  // //   }
+  // //   findPlaylistCreator()
+    
+  // //   if(playlist === undefined && clicks !== 1){
+  // //     console.log(play_list);
+  // //     setClicks(clicks+1);
+  // //   }
+  // //   if(playlist?.songList === play_list){
+  // //     console.log("we have a match");
+  // //   }
+  // // }, [])
 
   
 
@@ -109,7 +113,9 @@ export default function PlaylistPage (props) {
       if(play_list !== playlist?.songList ){
         if(playlist?.songList.length === 0 ){
           return;
-        } else {
+        }
+        else {
+      
           console.log("setting Play_list")
           updatePlay_list(playlist?.songList);
         }
@@ -205,7 +211,23 @@ export default function PlaylistPage (props) {
           <div className='playlist--songs'>
             <ul className='playlist--songlist--container'>
               {playlist &&
-                playlist.songList.map((song, index) => {
+                playlist?.songList?.map((song, index) => {
+
+                  // alert("song in .map: " + song.title);
+
+                  // alert("playlist songlist in .map: " + );
+
+
+                  // if (playlist?.songList?.includes(song._id)) {
+                  //   alert("does it even go in here?")
+                  //   playlist.songList.pop(song._id);
+                  //   alert("found duplicate song, should be removed");
+                  // }
+
+                  // if (playlist?.songList?.some(item => item.id === song._id)) {
+                  //   playlist.songList.pop(currentSong._id);
+                  //   alert("found duplicate song, should be removed");
+                  // }
                   return (
                     <li className='playlist--song--container'>
                       <h1>{index + 1}</h1>

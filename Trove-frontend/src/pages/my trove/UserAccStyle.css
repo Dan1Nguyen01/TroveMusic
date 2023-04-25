@@ -1,3 +1,6 @@
+
+
+
 .myTrvcontainer{
     display: flex;
     flex-direction: column;
@@ -7,7 +10,7 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    
+    margin-bottom: 30px;
     
 }
 .mytrove-splitter{
@@ -21,28 +24,89 @@
     margin-right: auto;
     margin-left: 1%;
 }
-.txt-container{
-    text-overflow: ellipsis;
-    overflow:hidden;
-    white-space: wrap;
-    height: 60px;
-    /* background-color: cyan; */
-    min-width: 60%;
-    max-width: 80%;
-    align-items: center;
-    display: flex;
-    color: white;
+.scrollableCont{
+/* background-color: chartreuse; */
+overflow-y: scroll !important;
+width: 100%;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.mytrv-playlistShowcase{
+    display:  inline-flex;
+    gap: 10px;
+    /* background-color: tomato; */
+    /* flex-wrap: wrap; */
+    margin: auto;
+    /* overflow: scroll; */
+    overflow: visible ;
+
 
 }
-@media screen and (min-width: 300px ){
-.txt-container{
-    font-size: medium;
+.mytrv-playlistShowcase > .cardPlaylist2 {
+    transform: (scale(0.6));
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.mytrv-playlistShowcase::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .mytrv-playlistShowcase {
+    -ms-overflow-style: default;  /* IE and Edge */
+    scrollbar-width: default;  /* Firefox */
+  }
+@media screen and (min-width: 300px ){
+
+.topGenreCont{
+    display: flex;
+    
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    /* padding-bottom: 5px; */
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .topGenreCont >.topGenre1{
+ order: 1;
+ margin-bottom: 15px;
+ margin-top: 10px;
+    }
+    .topGenreCont > .topGenre2{
+    order:2;
+    }
+    .topGenreCont > .topGenre3{
+    /* transform: translateX(-80px); */
+    order: 3;
+    }
 }
 @media screen and (max-width: 370px){
-.txt-container{
-    font-size: large;
-}
+
+.topGenreCont{
+    display: flex;
+    
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: auto;
+    }
+    .topGenreCont >.topGenre1{
+        order: 1;
+           }
+           .topGenreCont > .topGenre2{
+           order:2;
+           }
+           .topGenreCont > .topGenre3{
+           /* transform: translateX(-80px); */
+           order: 3;
+           }
 }
 @media screen and (min-width: 800px){
     .CardCont{
@@ -54,10 +118,50 @@
         padding-left: 5px;
         padding-right: 5px; 
     }
+    .topGenreCont{
+        display: inline-flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-left: 10px;
+        margin-right: 20px;
+        }
+        .topGenreCont >.topGenre1{
+                order: 2;
+                   }
+                   .topGenreCont > .topGenre2{
+                   order:1;
+                   }
+                   .topGenreCont > .topGenre3{
+                   /* transform: translateX(-80px); */
+                   order: 3;
+                   }
 }
 .txt-container{
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: wrap;
+    /* height: 60px; */
+    /* background-color: cyan; */
+    min-width: 60%;
+    max-width: 100%;
+    max-height: 15vmin;
+    /* background-color: tan; */
+    align-items: center;
+    display: flex;
+    color: white;
     margin-left: 3px ;
+    
+
 }
+.txt-container > h1{
+    
+    font-size: 6vmin;
+}
+
 .text{
     color: #878694;
     text-decoration: none;
@@ -71,20 +175,36 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 40px;
+    align-items: center;
 
 }
 .borderuserimg{
     background: linear-gradient(to top, #8650F4, #0034C4);
     border-radius: 50%;
-    padding:5px;
+    padding:1vmin;
     filter: none;
-    width: 100px;
-    height: 100px;
-    flex: none;
+    width: 15vmin;
+    height: 15vmin;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.user-img-cont{
+    border-radius: 50vmin;
+    width: 14vmin;
+    height: 13vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 .user-img{
-    border-radius: 50%;
-    width: 96px;
+    position: absolute;
+    width: 100%;
+    left: 0%;
 }
 .name_follower_cont{
     display: flex;
@@ -96,7 +216,8 @@
     margin-bottom: 10px;
     flex-grow: 1; 
     min-width: 170px;
-    max-width: 500px;   
+    max-width: 500px;  
+    font-size: 10vmin; 
 }
 .follower_cont{
     /* background-color: blueviolet; */
@@ -154,10 +275,13 @@
     justify-content: center;
     margin-top: 0;
     margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
     /* background-color: #412e67; */
     width: inherit;
     position: relative;
     flex-direction: column;
+    width: 100%;
 }
 
 .account-showcase h1 {
@@ -215,7 +339,8 @@
     overflow:scroll;
     gap: 5px;
     align-items: center;
-    width: 2200px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 .showcase-title-cont{
     width: 100%;
@@ -268,18 +393,13 @@
     border-radius: 15px;
     float:left;
     padding: 10px;
-    max-width: 400px;
+    max-width: 350px;
+    min-width: 300px;
     margin-bottom: 80px;
 
 }
 
-.TPdislikedSongs{
-    border: solid 4px rgba(255, 255, 255, 0.089);
-    border-radius: 15px;
-    float:left;
-    padding: 10px;
-    max-width: 400px; 
-}
+
 
 .RemoveLike{
     color: red;
@@ -293,45 +413,49 @@
 
 .LikeTable, .RemoveLikeTable{
 
-    /*
-    border is temp just so i can see the full table size
-    
-    border:1px solid yellow;
-    */
-
-    
-    width: 400px;
+    width: 350px;
     height: 40px;
 }
 
 .LikeTable{
-    max-width: 370px
+    max-width: 320px
 }
 
 .RemoveLikeTable{
     max-width: 30px
 
 }
-.topGenreCont{
-display: inline-flex;
-width: 100%;
-align-items: center;
-justify-content: space-around;
-padding-bottom: 10px;
-padding-top: 10px;
-margin-left: 20px;
-margin-right: 20px;
+.LikeTitle{
+    padding: 5px;
 }
+
+
+@media only screen and (max-width: 768px) {
+    .TPlikedSongs{
+        max-width: 100%;
+        min-width: unset; /* remove min-width for mobile view */
+        margin-bottom: 170px;
+    }
+    
+    .LikeTable,
+    .RemoveLikeTable {
+        width: 100%;
+        min-width: unset; /* remove min-width for mobile view */
+        height: auto;
+    }
+    
+    .LikeTable{
+        max-width: 90%;
+    }
+    
+    .RemoveLikeTable{
+        max-width: 10%;
+    }
+}
+
+
+
 .topGenreCont > div{
     text-align: center;
     scale: 1;
-}
-topGenreCont >.topGenre1{
-
-}
-topGenreCont > .topGenre2{
-
-}
-topGenreCont > .topGenre3{
-/* transform: translateX(-80px); */
 }

@@ -263,11 +263,21 @@
 
     }
 
-    .control-container>.playbtnstyle:hover {
-        scale: 1.05;
+    .control-container>.playbtnstyle:active {
+        scale: 0.90;
+        transition: 0.15s;
         box-shadow: #dbdadf74 0px 1px 2px;
     }
-
+    .rwBtn,
+    .ffBtn{
+        transition: 0.10s;
+    }
+    .rwBtn:active{
+        transform: translateX( -5px);
+    }
+    .ffBtn:active{
+        transform: translateX( 5px);
+    }
     @keyframes gradient {
         0% {
             background-position: 0% 50%;
@@ -470,6 +480,8 @@
         /* background-color: violet; */
         color: white;
         display: inline-flex;
+
+
     }
 
     .hiddenBtn {
@@ -546,6 +558,7 @@
     margin: auto;
     /* 
     margin-top: 300px; */
+    
 }
 
 .volumeContainter>input {
@@ -1015,7 +1028,8 @@
         /* background-color: violet; */
         color: white;
         display: inline-flex;
-        
+        display: none;
+        opacity: 0;
         right: 0;
     }
 
@@ -1094,6 +1108,8 @@
     /* right: 0; */
     /* 
     margin-top: 300px; */
+    display: none;
+    opacity: 0;
 }
 
 .volumeContainter>input {

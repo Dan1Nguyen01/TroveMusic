@@ -49,20 +49,7 @@
   border-radius: 50%;
   /* margin-left: 35%; */
 }
-.userImg-border {
-  /* background: linear-gradient(to top, #8650F4, #0034C4); */
-  border-radius: 50% !important;
-  margin: 5px;
-  padding: 1vw;
-  box-sizing: border-box;
-  display: flex;
-  filter: none;
-  height: 100px;
-  width: 100px;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-}
+
 .userimg_displayName {
   display: flex;
   align-items: center;
@@ -239,6 +226,7 @@
   }
   .updateMailPassCont {
     display: flex;
+    /* background-color: rgba(255, 255, 0, 0.242); */
     flex-direction: row;
     gap: 5vw;
   }
@@ -348,14 +336,17 @@
   }
   .updateMailPassinput {
     width: 70vw;
-    text-shadow: 3px 3px #c46500;
+    /* text-shadow: 3px 3px #c46500; */
   }
 
   .updateMailPassinput > form > h5 {
-    text-shadow: 3px 3px #c46500;
+    /* text-shadow: 3px 3px #c46500; */
   }
 
   .updateMailPassinput input {
     color: white;
   }
+}
+.form-control.accst {
+  background-color: white;
 }

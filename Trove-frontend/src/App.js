@@ -25,6 +25,8 @@ import {
   FollowingPage,
   PlaylistPage,
   UpdatePlaylist,
+  CuratedPlaylist,
+  ErrorPage
 } from "./pages";
 import CreatePlaylist from "./pages/playlist/createPlaylist/CreatePlaylist";
 
@@ -65,10 +67,14 @@ function App() {
             <Route path="/playlist/">
               <Route path=":id" element={<PlaylistPage />}></Route>
             </Route>
+            <Route path="/curated/">
+              <Route path=":id" element={<CuratedPlaylist />}></Route>
+            </Route>
             <Route path="/createplaylist" element={<CreatePlaylist />}></Route>
             <Route path="/editplaylist/">
               <Route path=":id" element={<UpdatePlaylist />}></Route>
             </Route>
+            <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
         </div>
 

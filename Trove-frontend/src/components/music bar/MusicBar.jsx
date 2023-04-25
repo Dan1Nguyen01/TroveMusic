@@ -141,9 +141,11 @@ const MusicBar = () => {
       // progressBar.current.max = seconds
       FCprogressBar.current.max = seconds
     }
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState])
+  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
 
   // Music Player Functions
+
+  //Calculates the time for the music bar
   const calculateTime = secs => {
     const minutes = Math.floor(secs / 60)
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`
@@ -151,7 +153,7 @@ const MusicBar = () => {
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`
 
     return `${returnedMinutes} : ${returnedSeconds}`
-  }
+  };
 
   useEffect(() => {
     if (isPlay_Global === true) {
@@ -164,11 +166,13 @@ const MusicBar = () => {
     }
 
 
-  }, [isPlay_Global])
+  }, [isPlay_Global]);
   const togglePlayPause = () => {
     toggleIsPlay_G();
-  }
+  };
 
+
+  //Mutes song on musicBar
   const toggleMute = () => {
     const prevValue = isMuted
     updatePrevVol(audioPlayer.current.volume)
@@ -190,7 +194,9 @@ const MusicBar = () => {
       volumeRef.current.value = 0
       // console.log(`current vol:` + volumeLevel);
     }
-  }
+  };
+
+  //Sets the song to the beginning
   const toBeginningOfSong = () => {
     // progressBar.current.value = 0
     FCprogressBar.current.value = 0
@@ -200,8 +206,9 @@ const MusicBar = () => {
     setTimeout(() => {
       document.getElementById('playPauseBtn').click()
     }, 500)
-  }
+  };
 
+  //makes the song play or stop playing
   const whilePlaying = () => {
     if (displayMusicBar === false && isPlaying === true) {
       // togglePlayPause();
@@ -219,14 +226,14 @@ const MusicBar = () => {
       //animationRef.current = requestAnimationFrame(whilePlaying) //potential memory leak
     } else {
     }
-  }
+  };
 
   const changeRange = () => {
     // audioPlayer.current.currentTime = progressBar.current.value
 
     audioPlayer.current.currentTime = FCprogressBar.current.value
     changePlayerCurrentTime()
-  }
+  };
 
   const changePlayerCurrentTime = () => {
     FCprogressBar.current.style.setProperty(
@@ -239,15 +246,18 @@ const MusicBar = () => {
     //   `${(progressBar.current.value / duration) * 100}%`
     // )
     setCurrentTime(FCprogressBar.current.value)
-  }
+  };
 
+  //changes volume
   const changeVolumeLevel = () => {
     setIsMuted(true)
     // console.log(audioPlayer.current.volume);
     // console.log(volumeRef.current.value);
     audioPlayer.current.volume = volumeRef.current.value / 100
-  }
+  };
 
+
+  //loops for songs
   const changeLoopLevel = () => {
     const currentLoopLvl = loopLevel
     const newLooplvl = currentLoopLvl + 1
@@ -265,11 +275,10 @@ const MusicBar = () => {
         console.log(`default`)
         updateLoopLevel(1)
     }
-  }
+  };
   const shareSong = () => {
     console.log(`share btn`)
-  }
-
+  };
 
   const userID = JSON.parse(localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")).id : null;
 
@@ -306,7 +315,7 @@ const MusicBar = () => {
   };
 
 
-
+//use effect for fetching the likeuserinfo when the currentsong is changed
   React.useEffect(() => {
 
 
@@ -332,7 +341,9 @@ const MusicBar = () => {
       setIsLiked(false)
     }
 
-  }
+  };
+
+  //Rewindsong / go back to previous song
   const handleRewind = () => {
     const currentTimeInSong = audioPlayer.current.currentTime
 
@@ -359,7 +370,9 @@ const MusicBar = () => {
       toBeginningOfSong()
     }
     // updateSong();
-  }
+  };
+
+  //Fast forward song / Skip song
   const handleForward = () => {
     console.log('forward!')
     if (loopLevel === 2) {
@@ -411,7 +424,8 @@ const MusicBar = () => {
       console.log(play_listPosition)
       // updateSong();
     }
-  }
+  };
+
   const toggleFC = event => {
     // if the user clickson the artist name it's ignored
     if (event.target.id == 'artistTextLink') {
@@ -419,12 +433,12 @@ const MusicBar = () => {
     } else {
       setFullscreen(!isFullscreen)
     }
-  }
+  };
 
   const navigate = useNavigate()
   const redirectArtist = () => {
     navigate(`/artist/${currentSong.artist._id}`)
-  }
+  };
 
   // Like and dislike function
   const fetchUnlike = async () => {
@@ -432,7 +446,7 @@ const MusicBar = () => {
       method: 'POST'
     })
     const json = response.json()
-  }
+  };
 
   return (
     <>
@@ -670,7 +684,7 @@ const MusicBar = () => {
 
               <div className='control-container'>
                 <button onClick={handleRewind}>
-                  <BsSkipStart />
+                  <BsSkipStart className='rwBtn'/>
                 </button>
                 <button
                   className='playbtnstyle'
@@ -684,7 +698,7 @@ const MusicBar = () => {
                   )}
                 </button>
                 <button onClick={handleForward}>
-                  <BsSkipEnd />
+                  <BsSkipEnd className='ffBtn'/>
                 </button>
               </div>
               <div className='fillerDivPlayer'></div>
@@ -752,4 +766,4 @@ const MusicBar = () => {
   )
 }
 
-export default MusicBar
+export default MusicBar;

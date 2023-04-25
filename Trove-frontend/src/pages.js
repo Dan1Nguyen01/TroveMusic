@@ -17,3 +17,7 @@ export { default as FollowingPage } from "./pages/follow/FollowingPage/Following
 export { default as PlaylistPage } from "./pages/playlist/PlaylistPage.jsx";
 export { default as CreatePlaylist } from "./pages/playlist/createPlaylist/CreatePlaylist.jsx";
 export { default as UpdatePlaylist } from "./pages/playlist/updatePlaylist/UpdatePlaylist.jsx";
+
+export {default as CuratedPlaylist} from "./pages/playlist/curated/curatedPlaylistPage";
+
+export { default as ErrorPage } from "./pages/errornotfound/ErrorPage.jsx";
